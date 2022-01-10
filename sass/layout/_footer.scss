@@ -1,0 +1,255 @@
+.footer{
+    padding-top: 5rem;
+    margin:o;
+    background-image: linear-gradient(to right bottom,
+    cornflowerblue, #0c6388ab);
+    // padding: 10rem 0;
+    color: $color-grey-1;
+    font-size: 1.5rem;
+    // padding-bottom: 10rem;
+
+    @include respond(tab-port) {
+        // padding: 8rem 0;
+    }
+    
+
+    &__logo-box{
+        text-align: center;
+        margin-bottom: 8rem;
+        padding: 10rem;
+        width: 100%;     
+        height: auto;
+    }
+
+    &__logo{
+        width: 15rem;
+        height: auto;
+    }
+
+    &__navigation{
+        border-top: 1px solid $color-grey-1;
+        display: inline-block;
+
+        @include respond(tab-port){
+            width: 100%;
+            text-align: center;
+        }
+
+    }
+
+    &__list{
+        list-style: none;
+        margin-left: -4rem;
+    }
+
+    &__item{
+        display: inline-block;
+        
+        
+        
+        &:not(:last-child){
+            margin-right: 1.5rem;
+        }
+    }
+
+    &__link{
+        &:link,
+        &:visited{
+            background-color: $color-grey-3;
+            color: $color-grey-1;
+            text-decoration: none;
+            text-transform: uppercase;
+            display: inline-block;
+            transition: all .3s;
+        }
+
+        &:hover,
+        &:active{
+            color:$color-primary;
+            box-shadow: 0 1rem 2rem rgba($color-black, .4);
+            transform: rotate(5deg) scale(1.3);
+        }
+    }
+
+    &__copyright{
+        color: $color-grey-1;
+        border-top: 1px solid $color-grey-1;
+        padding-top: 2rem;
+        float: right;
+        width: 85%;
+
+        @include respond(tab-port){
+            width: 100%;
+            float: none;
+        }
+    }
+
+    .footer-grid {
+        // background-color: $color-grey-3;
+        display: grid;
+        // grid-template-columns: 1fr 2fr;
+        grid-template-areas: 'cont form'
+                             'copy copy';
+
+        @include respond(phone-port){
+                grid-template-areas: 'cont'
+                                     'form'
+                                     'copy';
+        }
+
+        & .book__form {
+            grid-area: cont;
+            margin: 4rem;
+            box-shadow: 0 1rem 2rem rgba($color-black, .4);
+
+            & .form {
+                @include respond(tab-port){
+                    overflow-x: hidden;
+                }
+            }
+
+            & .btn--green {
+                margin-left:40px;
+
+                @media only screen and (max-width: 1000px) {
+                    width: 180px;
+                    margin-left:15px;
+                }
+                @media only screen and (max-width: 600px) {
+                    width: 150px;
+                }
+            }
+
+            @media only screen and (max-width:398px) {
+                margin:0px;
+            }
+        }
+
+        & .contact-info {
+            font-family: "lato",sans-sarif;
+            display:grid;
+            justify-items: center;
+            align-items: center;
+            grid-area: form;
+            padding: 6rem 3rem 0 3rem;
+            @media only screen and (max-width:466px) {
+                & h3 {
+                font-size: 15px;
+            }
+            }
+
+            @include respond(tab-port){
+                padding: 6rem 3rem 6rem 3rem;
+            }
+            
+            @include respond(phone){
+                padding: 5rem 3rem 6rem 1rem;
+            }
+
+            & .book__heading {
+                width: 100%;
+            }
+        }
+
+        & .contact-details-item {
+            display: flex;
+            // justify-content: center;
+            gap: 2rem;
+            align-items: center;
+            letter-spacing: 3px;
+            padding: 1rem 1rem;
+            border-radius: 3px;
+            transition: all .3s;
+
+            @media only screen and (max-width:466px) {
+                padding: 0 4rem;
+            }
+
+            & a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            &:last-child h3{
+                max-width: 300px;
+            }
+
+            &:hover {
+                transform: scale(1.1);
+                background-image: linear-gradient(to right bottom,
+                rgba(100, 148, 237, 0.158), #0c63885d);
+                box-shadow: 0 1rem 2rem rgba($color-black, .4);
+            }
+
+            @include respond(phone){
+                letter-spacing: 2px;
+            }
+
+            & i {
+                font-size: 17px;
+            }
+            
+
+            & h3 {
+                transition: all .3s;
+            }
+        }
+    }
+
+    .footer-social {
+        // grid-area: soci;
+       display: flex;
+       gap:10px;
+
+        & a {
+            color: #fff;
+            font-size: 2rem;
+            transition: all .3s;
+            width: 80px;
+            // height: min-content;
+            text-align: center;
+
+            &:hover {
+                transform: scale(1.1);
+                background-image: linear-gradient(to right bottom,
+                rgba(100, 148, 237, 0.623), #0c6388ab);
+                box-shadow: 0 1rem 2rem rgba($color-black, .4);
+                border-radius: 2%;
+            }
+        }
+        .fbk:hover {
+            color: #3b5999;
+        }
+        .insta:hover {
+            color: #e4405f;
+        }
+        .twitter:hover {
+            color: #55acee;
+        }
+        .gmail:hover {
+            background: linear-gradient(45deg, #8e36e0 0%, #164b92 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .whatsapp:hover {
+            color: #25D366;
+        }
+    }
+
+    &__copyright{
+        grid-area: copy;
+        // position:absolute;
+        color: $color-grey-1;
+        border-top: 1px solid $color-grey-1;
+        padding: 2rem;
+        float: right;
+        width: 85%;
+        text-transform: uppercase;
+
+        @include respond(tab-port){
+            width: 100%;
+            float: none;
+        }
+    }
+
+}

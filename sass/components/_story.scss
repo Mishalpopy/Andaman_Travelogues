@@ -1,0 +1,120 @@
+.story{
+    max-width:400px;
+    margin: 0 auto;
+    // box-shadow: 0 3rem 6rem rgba($color-black, .1);
+    background-color:#f3f3f3;
+    border-radius: 2%;
+    padding: 3rem 4rem;
+    font-size: $default-font-size;
+    // transform: skewX(-12deg);
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+flex-direction: column;
+
+    // & > *{
+        //transform: skewX(-12deg);
+        //it doesn'nt work
+        //bcs two transform's does not work in same class
+    // }
+
+    &__shape{
+        width: 15rem;
+        height: 15rem;
+        // float: left;
+        // -webkit-shape-outside: circle(50% at 50% 50%);
+        // shape-outside: circle(50% at 50% 50%);
+
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        //transform: translateX(-3rem);
+        // transform: skewX(12deg);
+        position: relative;
+    }
+
+    &__image{
+        // float: left;
+        height:100%;
+        width: 100%;
+        object-fit: cover;
+        // transform: translateX(-4rem) scale(1.4);
+        transition: all .5s;
+    }
+
+    &__text{
+        // transform: skewX(12deg);
+        // text-align: center;
+
+        & h3 {
+            text-align:center;
+        }
+
+        & p {
+            text-align: start;
+        }
+    }
+
+    &__caption{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 30%);
+        color: $color-white;
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        text-align: center;
+        opacity: 0;
+        transition: all .5s;
+        backface-visibility: hidden;
+    }
+
+    & .testimony {
+
+        &-text {
+            height: 100px;
+            overflow:hidden;
+        }
+
+        &-button {
+            padding: 1rem 3rem;
+        }
+    }
+
+    &:hover &__caption{
+        opacity: 1;
+        transform: translate(-50%, -50%);
+        
+    }
+
+    &:hover &__image{
+        // transform: translateX(-4rem) scale(1);
+        filter: blur(3px) brightness(80%);
+    }
+
+    // @media only screen and (max-width: 1300px) {
+    //     display: flex;
+    //     flex-direction: column;
+    //     // width: 60%;
+    //     align-items: center;
+    // }
+
+    @include respond(tab-port) {
+        // width: min-content;
+        // margin-left: -5.5rem;
+        padding: 3rem ;
+
+    }
+
+    @include respond(phone) {
+        transform: skew(0deg); 
+        // margin-left: -5.5rem;
+        // padding-left: 5rem;
+        &__text{
+            transform: skewX(0deg);
+        }
+
+        &__shape{
+            transform: skewX(0deg);
+        }
+    }
+}
